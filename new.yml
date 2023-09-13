@@ -1,5 +1,5 @@
 - name: Frontend
-  hosts: ALL
+  hosts: all
   become: yes
   tasks:
     - name: install ngnix
