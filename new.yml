@@ -5,15 +5,15 @@
     - name: install ngnix
       ansible.builtin.dnf:
         name: ngnix
-        state: latest
+        state: start
     - name: configfile
       ansible.builtin.copy:
         src: expense.conf
         dest: /etc/nginx/default.d/expense.conf
-    - name: removing old ngnix
-      ansible.builtin.file:
-        path: /usr/share/nginx/html
-        state: remove
+    #- name: removing old ngnix
+    #  ansible.builtin.file:
+    #    path: /usr/share/nginx/html
+     #   state: remove
     - name: download
       ansible.builtin.get_url:
         url: https://expense-artifacts.s3.amazonaws.com/frontend.zip
