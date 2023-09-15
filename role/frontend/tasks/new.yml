@@ -2,15 +2,15 @@
   hosts: all
   become: yes
   tasks:
-    - name: install ngnix
+    - name: install nginx
       ansible.builtin.dnf:
-        name: ngnix
-        state: installed
-    - name: configfile
+        name: nginx
+        state: present
+    - name: configure file
       ansible.builtin.copy:
         src: expense.conf
         dest: /etc/nginx/default.d/expense.conf
-    - name: removing old ngnix
+    - name: removing old nginx
       ansible.builtin.file:
         path: /usr/share/nginx/html
         state: absent
@@ -21,6 +21,6 @@
         remote_src: yes
     - name: starting
       ansible.builtin.systemd:
-        name: ngnix
+        name: nginx
         state: restart
         enabled: yes
