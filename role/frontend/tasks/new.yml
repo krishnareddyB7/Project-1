@@ -10,17 +10,13 @@
       ansible.builtin.copy:
         src: expense.conf
         dest: /etc/nginx/default.d/expense.conf
-    #- name: removing old ngnix
-    #  ansible.builtin.file:
-    #    path: /usr/share/nginx/html
-     #   state: remove
-    - name: download
-      ansible.builtin.get_url:
-        url: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-        dest: /tmp/frontend.zip
-    - name: extracting
+    - name: removing old ngnix
+      ansible.builtin.file:
+        path: /usr/share/nginx/html
+        state: absent
+    - name: download and extract
       ansible.builtin.unarchive:
-        src: frontend.zip
+        src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
         dest: /usr/share/nginx/html
         remote_src: yes
     - name: starting
