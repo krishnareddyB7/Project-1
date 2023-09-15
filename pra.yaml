@@ -5,11 +5,11 @@
       ansible.builtin.debug:
         msg: hello world
 
-    - name: demo variable
-      hosts: all
-      vars:
-        url: examples.com
-      tasks:
-        - name: print a variable
-          ansible.builtin.debug:
-            msg: "{{url}}"
+- name: demo on vars
+  hosts: all
+  vars:
+    url: examples.com
+  tasks:
+    - name: print a variable
+      ansible.builtin.debug:
+        msg: "{{ url }}"
