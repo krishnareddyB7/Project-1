@@ -4,6 +4,7 @@
     - name: print hello world
       ansible.builtin.debug:
         msg: hello world
+
     - name: demo variable
       hosts: all
       vars:
