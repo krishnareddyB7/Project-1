@@ -2,23 +2,23 @@
   hosts: all
   become: yes
   tasks:
-    - name: installing nginx
-      ansible.builtin.dnf:
-        name: nginx
-        state: present
-    - name: configure file
-      ansible.builtin.copy:
-        src: expense.conf
-        dest: /etc/nginx/default.d/expense.conf
-    - name: removing old nginx
-      ansible.builtin.file:
-        path: /usr/share/nginx/html
-        state: absent
-    - name: download and extract
-      ansible.builtin.unarchive:
-        src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
-        dest: /usr/share/nginx/html
-        remote_src: yes
+    #- name: installing nginx
+      #ansible.builtin.dnf:
+      #  name: nginx
+     #   state: present
+    #- name: configure file
+      #ansible.builtin.copy:
+      #  src: expense.conf
+     #   dest: /etc/nginx/default.d/expense.conf
+    #- name: removing old nginx
+      #ansible.builtin.file:
+       # path: /usr/share/nginx/html
+       # state: absent
+    #- name: download and extract
+      #ansible.builtin.unarchive:
+      #  src: https://expense-artifacts.s3.amazonaws.com/frontend.zip
+      #  dest: /usr/share/nginx/html
+      #  remote_src: yes
     - name: starting
       ansible.builtin.systemd:
         name: nginx
