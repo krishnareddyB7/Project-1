@@ -1,12 +1,12 @@
 - name: practice
-  hosts: all
+  hosts: localhost
   tasks:
     - name: print hello world
       ansible.builtin.debug:
         msg: hello world
 
 - name: demo on vars
-  hosts: all
+  hosts: localhost
   vars:
     url: examples.com
   tasks:
