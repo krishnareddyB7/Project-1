@@ -15,6 +15,7 @@
     - name: add user
       ansible.builtin.user:
         name: expenses
+        state: present
     - name: clean up old account
       ansible.builtin.file:
         path: /app
