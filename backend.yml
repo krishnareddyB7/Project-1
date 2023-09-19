@@ -33,7 +33,7 @@
       args:
         chdir: /app
 
-    - name : mysql isntall
+    - name : mysql install
       ansible.builtin.dnf:
         name: mysql
         state: present
