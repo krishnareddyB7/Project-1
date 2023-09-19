@@ -16,7 +16,7 @@
       ansible.builtin.user:
         name: expenses
     - name: clean up old account
-      ansible,builtin.file:
+      ansible.builtin.file:
         path: /app
         state: absent
     - name: clean up old account
