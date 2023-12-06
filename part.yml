@@ -1,0 +1,6 @@
+- name: role part
+  hosts: all
+  become: yes
+  roles:
+    - "{{ role_name }}"
+
